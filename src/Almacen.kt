@@ -15,7 +15,7 @@ class Almacen {
                         matriz[i][j]=b
                     }
                     else {
-                        println("La id está repetida")
+                        println("La bebida ya existe")
                     }
                 }
             }
@@ -48,14 +48,14 @@ class Almacen {
         {
             for (j in 0..4)
             {
-                if (matriz[i][j]==null)
+                if (matriz[i][j]!=null)
                 {
-                    if (checkId(b.id))
+                    if (!checkId(b.id))
                     {
-                        matriz[i][j]=b
+                        matriz[i][j]=null
                     }
                     else {
-                        println("La id no existe")
+                        println("La bebida no existe")
                     }
                 }
             }
@@ -64,20 +64,39 @@ class Almacen {
 
     fun mostrar()
     {
-
+        for (i in 0..4)
+        {
+            for (j in 0..4)
+            {
+                if (matriz[i][j]!=null)
+                {
+                    println("Bebida [$i][$j]: "+matriz[i][j].toString())
+                }
+            }
+        }
     }
 
     fun calcular()
+    {
+        var total:Float = 0.0f
+        for (i in 0..4)
+        {
+            for (j in 0..4)
+            {
+                if (matriz[i][j]!=null)
+                {
+                    total+= matriz[i][j]?.precio ?: total
+                }
+            }
+        }
+    }
+
+    fun calcular(marca:String)
     {
 
     }
 
     /*fun calcular()
-    {
-
-    }
-
-    fun calcular()
     {
 
     }*/
