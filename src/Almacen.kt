@@ -76,7 +76,7 @@ class Almacen {
         }
     }
 
-    fun calcular()
+    fun calcular():Float
     {
         var total:Float = 0.0f
         for (i in 0..4)
@@ -89,16 +89,39 @@ class Almacen {
                 }
             }
         }
+        return total
     }
 
-    fun calcular(marca:String)
+    fun calcular(marca:String):Float
     {
-
+        var total:Float = 0.0f
+        for (i in 0..4)
+        {
+            for (j in 0..4)
+            {
+                if (matriz[i][j]!=null)
+                {
+                    if (matriz[i][j]?.marca==marca)
+                    {
+                        total+= matriz[i][j]?.precio ?: total
+                    }
+                }
+            }
+        }
+        return total
     }
 
-    /*fun calcular()
+    fun calcular(columna:Int):Float
     {
-
-    }*/
+        var total:Float = 0.0f
+        for (i in 0..4)
+        {
+            if (matriz[i][columna]!=null)
+            {
+                total+= matriz[i][columna]?.precio ?: total
+            }
+        }
+        return total
+    }
 
 }

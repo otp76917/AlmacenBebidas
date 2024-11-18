@@ -1,1 +1,5 @@
-class Azucarada (id:Int,litros:Float,precio:Float,marca:String,porcentaje:Float,promocion:Boolean) : Bebida(id,litros,precio,marca)
+class Azucarada (id:Int,litros:Float,precio:Float,marca:String,val porcentaje:Float,var promocion:Boolean) : Bebida(id,litros,precio,marca){
+    override fun toString(): String {
+        return "id=$id litros=$litros precio=$precio marca=$marca porcentaje=$porcentaje promocion=$promocion"
+    }
+}
