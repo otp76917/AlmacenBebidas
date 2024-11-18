@@ -1,0 +1,1 @@
+class Azucarada (id:Int,litros:Float,precio:Float,marca:String,porcentaje:Float,promocion:Boolean) : Bebida(id,litros,precio,marca)

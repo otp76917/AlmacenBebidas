@@ -1,0 +1,1 @@
+open class Bebida (val id:Int,val litros:Float,val precio:Float,val marca:String)
