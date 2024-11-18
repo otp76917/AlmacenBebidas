@@ -4,6 +4,7 @@ class Almacen {
 
     fun agregar(b:Bebida)
     {
+        var end:Boolean=false
         for (i in 0..4)
         {
             for (j in 0..4)
@@ -13,13 +14,14 @@ class Almacen {
                     if (checkId(b.id))
                     {
                         matriz[i][j]=b
-                    }
-                    else {
-                        println("La bebida ya existe")
+                        end=true
                     }
                 }
+                if (end) break
             }
+            if (end) break
         }
+        if (!end) println("La bebida ya existe")
     }
 
     fun checkId(id:Int):Boolean
@@ -42,24 +44,26 @@ class Almacen {
         return bool
     }
 
-    fun eliminar(b:Bebida)
+    fun eliminar(id:Int)
     {
+        var end:Boolean=false
         for (i in 0..4)
         {
             for (j in 0..4)
             {
                 if (matriz[i][j]!=null)
                 {
-                    if (!checkId(b.id))
+                    if (!checkId(id))
                     {
                         matriz[i][j]=null
-                    }
-                    else {
-                        println("La bebida no existe")
+                        end=true
                     }
                 }
+                if (end) break
             }
+            if (end) break
         }
+        if (!end) println("La bebida no existe")
     }
 
     fun mostrar()
@@ -76,20 +80,21 @@ class Almacen {
         }
     }
 
-    fun calcular():Float
+    fun calcular():String
     {
         var total:Float = 0.0f
         for (i in 0..4)
         {
             for (j in 0..4)
             {
-                if (matriz[i][j]!=null)
+                val beb:Bebida? = matriz[i][j]
+                if (beb!=null)
                 {
-                    total+= matriz[i][j]?.precio ?: total
+                    total+=beb.precio
                 }
             }
         }
-        return total
+        return "%.2f".format(total)
     }
 
     fun calcular(marca:String):Float
