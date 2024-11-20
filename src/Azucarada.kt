@@ -4,5 +4,6 @@ class Azucarada (id:Int,litros:Float,precio:Float,marca:String,val porcentaje:Fl
     }
     init {
         if(this.promocion) this.precio *= 0.9f
+        println(precio)
     }
 }

@@ -3,6 +3,7 @@
 fun main()
 {
     var almacen:Almacen = Almacen()
+    /*
     almacen.agregar(Agua(1,1.5f,0.45f,"Fuensanta","Madrid"))
     almacen.eliminar(1)
     for (i in 1..25)
@@ -17,4 +18,6 @@ fun main()
         almacen.eliminar(i)
     }
     println(almacen.calcular())
+     */
+    almacen.agregar(Azucarada(1,1f,50f,"coca-cola",40f,true))
 }
